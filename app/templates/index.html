@@ -1,0 +1,172 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BeautyScheduler</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="shortcut icon" href="./static/icon/flower.svg" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">BeautyScheduler</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#inicio">Início</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#sobre">Sobre Nós</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#servicos">Nossos Serviços</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#profissionais">Profissionais</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contato">Contato</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Seção 'Início' -->
+    <header id="inicio" class="bg-primary text-white text-center py-5">
+        <div class="container">
+            <h1 class="mt-5">Bem-vindo ao nosso Salão de Beleza</h1>
+            <p class="lead">Seu estilo, nossa paixão!</p>
+        </div>
+    </header>
+
+    <!-- Seção 'Sobre Nós' -->
+    <section id="sobre" class="py-5">
+        <div class="container">
+            <h2 class="text-center">Sobre Nós</h2>
+            <div class="row justify-content-center">
+                <div class="mt-5 col-md-6 text-center">
+                    <p>Um salão minuciosamente planejado e concebido para oferecer todos os serviços voltados à beleza e
+                        estética, feminina e masculina. Salas estruturadas para novas, estética especializada, espaços
+                        próprios para esmalteria, barbearia, maquiagem, podologia, massagem, depilação e Hair Stylists.
+                        Dispomos de um ambiente onde todos podem usufruir de lanches ou refeições saudáveis,
+                        carinhosamente preparadas para tornar sua permanência mais agradável. Além de um amplo espaço
+                        para eventos, cursos e reuniões empresariais.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção 'Nossos Serviços' -->
+    <section id="servicos" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center">Nossos Serviços</h2>
+            <div class="row justify-content-center">
+                <div class="card-group h-100 gap-3">
+                    {% for servico in servicos %}
+                    <div class="card text-center mb-3 col-md-4 border-0" style="width: 18rem;">
+                        {% if servico.imagem %}
+                        <img src="{{ servico.imagem.url }}" class="card-img-top" alt="Serviço {{ loop.index }}" height="600">
+                        {% else %}
+                        <img src="https://via.placeholder.com/300" class="card-img-top" alt="Serviço sem imagem">
+                        {% endif %}
+                        <div class="card-body d-flex flex-column justify-content-between">
+                            <h5 class="card-title">{{ servico.nome }}</h5>
+                            <p class="card-text">{{ servico.descricao }}</p>
+                            <div>
+                                <p class="card-text"><small class="text-muted">Profissional: {{servico.profissional.nome }}</small></p>
+                                <a href="https://wa.me/{{servico.profissional.telefone_whatsapp}}" class="btn btn-primary" target="_blank">Agendar</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção 'Profissionais' -->
+    <section id="profissionais" class="py-5">
+        <div class="container">
+            <h2 class="text-center">Nossos Profissionais</h2>
+            <div class="row justify-content-center">
+                <div class="card-group h-100 gap-3">
+                    {% for profissional in profissionais %}
+                    <div class="card text-center mb-3 col-md-4 border" style="width: 18rem;">
+                            {% if profissional.foto %}
+                            <img src="{{ profissional.foto.url }}" class="card-img-top" alt="Profissional {{ loop.index }}" height="600">
+                            {% else %}
+                            <img src="https://via.placeholder.com/300" class="card-img-top" alt="Serviço sem imagem">
+                            {% endif %}
+                            <div class="card-body d-flex flex-column justify-content-center">
+                                <h5 class="card-title">{{ profissional.nome }}</h5>
+                                <p class="card-text">{{ profissional.descricao }}</p>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção 'Contato' -->
+    <section id="contato" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center">Contato</h2>
+            <div class="row">
+                <div class="col-md-6">
+                    <p><i class="fas fa-map-marker-alt"></i> Endereço: Rua Exemplo, 123 - Cidade, Estado</p>
+                    <p><i class="fas fa-phone"></i> Telefone: <a href="tel:+5511999999999">+55 11 99999-9999</a></p>
+                    <p><i class="fab fa-whatsapp"></i> WhatsApp: <a href="https://wa.me/5511999999999">Clique aqui</a>
+                    </p>
+                    <p><i class="fas fa-envelope"></i> E-mail: <a
+                            href="mailto:contato@salondebeleza.com">contato@salondebeleza.com</a></p>
+                </div>
+                <div class="col-md-6">
+                    <form>
+                        <div class="mb-3">
+                            <label for="nome" class="form-label">Nome</label>
+                            <input type="text" class="form-control" id="nome" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">E-mail</label>
+                            <input type="email" class="form-control" id="email" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="mensagem" class="form-label">Mensagem</label>
+                            <textarea class="form-control" id="mensagem" rows="3" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Enviar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="text-center">
+        <div class="container">
+            <p>© 2023 Salão de Beleza. Todos os direitos reservados.</p>
+            <div>
+                <a href="#" class="me-3"><i class="fab fa-facebook"></i></a>
+                <a href="#" class="me-3"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

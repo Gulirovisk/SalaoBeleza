@@ -1,3 +1,10 @@
 from django.contrib import admin
+from .models import *
 
-# Register your models here.
+@admin.register(Profissional)
+class ProfissionalAdmin(admin.ModelAdmin):
+    list_display = ('nome', 'especialidade', 'telefone_whatsapp')
+
+@admin.register(Servico)
+class ServicoAdmin(admin.ModelAdmin):
+    list_display = ('nome', 'profissional', 'horario_inicio', 'horario_fim')
