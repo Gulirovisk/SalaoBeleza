@@ -12,9 +12,9 @@
 </head>
 
 <body>
-    <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
         <div class="container">
+            <img src="{% static 'icon/blackFlowe.svg' %}" alt="Logo do salão de beleza" class="me-2">
             <a class="navbar-brand" href="#">BeautyScheduler</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -42,88 +42,94 @@
         </div>
     </nav>
 
-    <!-- Seção 'Início' -->
-    <header id="inicio" class="bg-primary text-white text-center py-5">
+    <header id="inicio" class="bg-dark text-white text-center py-5"
+        style="background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('/static/icon/background.jpg'); background-size: cover; background-position: center;">
         <div class="container">
-            <h1 class="mt-5">Bem-vindo ao nosso Salão de Beleza</h1>
-            <p class="lead">Seu estilo, nossa paixão!</p>
+            <h1 class="mt-5">Descubra sua melhor versão</h1>
+            <p class="lead">Elegância e estilo que você merece.</p>
         </div>
     </header>
 
-    <!-- Seção 'Sobre Nós' -->
+    <!-- Sobre -->
     <section id="sobre" class="py-5">
         <div class="container">
-            <h2 class="text-center">Sobre Nós</h2>
-            <div class="row justify-content-center">
-                <div class="mt-5 col-md-6 text-center">
-                    <p>Um salão minuciosamente planejado e concebido para oferecer todos os serviços voltados à beleza e
+            <h2 class="text-center" style="font-family: Poppins, Arial, Tahoma, sans-serif;">Sobre Nós</h2>
+            <div class="row align-items-center">
+                <div class="col-md-6 d-flex justify-content-center" >
+                    <p style="font-family: Montserrat; font-size: 1.2rem; line-height: 1.6; color: #333;">
+                        Um salão minuciosamente planejado e concebido para oferecer todos os serviços voltados à beleza e
                         estética, feminina e masculina. Salas estruturadas para novas, estética especializada, espaços
                         próprios para esmalteria, barbearia, maquiagem, podologia, massagem, depilação e Hair Stylists.
                         Dispomos de um ambiente onde todos podem usufruir de lanches ou refeições saudáveis,
                         carinhosamente preparadas para tornar sua permanência mais agradável. Além de um amplo espaço
-                        para eventos, cursos e reuniões empresariais.</p>
-                </div>
+                        para eventos, cursos e reuniões empresariais.
+                    </p>
+                    </div>
+                    <div class="col-md-6 d-flex justify-content-center">
+                        <img src="{% static 'icon/logo2.png' %}" class="img-fluid" alt="Imagem do salão">
+                    </div>
             </div>
         </div>
     </section>
 
-    <!-- Seção 'Nossos Serviços' -->
+
+    <!-- Serviços -->
     <section id="servicos" class="py-5 bg-light">
+        
         <div class="container">
-            <h2 class="text-center">Nossos Serviços</h2>
+            <h2 class="text-center" style="font-family: Poppins, Arial, Tahoma, sans-serif;">Nossos Serviços</h2>
             <div class="row justify-content-center">
-                <div class="card-group h-100 gap-3">
                     {% for servico in servicos %}
                     <div class="card text-center mb-3 col-md-4 border-0" style="width: 18rem;">
                         {% if servico.imagem %}
-                        <img src="{{ servico.imagem.url }}" class="card-img-top" alt="Serviço {{ loop.index }}" height="600">
+                        <img src="{{ servico.imagem.url }}" class="card-img-top" alt="Serviço {{ loop.index }}"
+                            height="200" width="200" style="object-fit: cover;" loading="lazy">
                         {% else %}
-                        <img src="https://via.placeholder.com/300" class="card-img-top" alt="Serviço sem imagem">
+                        <img src="https://via.placeholder.com/300" class="card-img-top" alt="Serviço sem imagem" loading="lazy">
                         {% endif %}
                         <div class="card-body d-flex flex-column justify-content-between">
                             <h5 class="card-title">{{ servico.nome }}</h5>
                             <p class="card-text">{{ servico.descricao }}</p>
                             <div>
-                                <p class="card-text"><small class="text-muted">Profissional: {{servico.profissional.nome }}</small></p>
-                                <a href="https://wa.me/{{servico.profissional.telefone_whatsapp}}" class="btn btn-primary" target="_blank">Agendar</a>
+                                <p class="card-text"><small class="text-muted">Profissional: {{servico.profissional.nome}}</small></p>
+                                <a href="https://wa.me/{{servico.profissional.telefone_whatsapp}}"
+                                    class="btn btn-primary" target="_blank" rel="noopener noreferrer">Agendar</a>
                             </div>
                         </div>
                     </div>
 
                     {% endfor %}
-                </div>
             </div>
         </div>
     </section>
 
-    <!-- Seção 'Profissionais' -->
+    <!-- Profissionais -->
     <section id="profissionais" class="py-5">
         <div class="container">
-            <h2 class="text-center">Nossos Profissionais</h2>
-            <div class="row justify-content-center">
-                <div class="card-group h-100 gap-3">
-                    {% for profissional in profissionais %}
-                    <div class="card text-center mb-3 col-md-4 border" style="width: 18rem;">
-                            {% if profissional.foto %}
-                            <img src="{{ profissional.foto.url }}" class="card-img-top" alt="Profissional {{ loop.index }}" height="600">
-                            {% else %}
-                            <img src="https://via.placeholder.com/300" class="card-img-top" alt="Serviço sem imagem">
-                            {% endif %}
-                            <div class="card-body d-flex flex-column justify-content-center">
-                                <h5 class="card-title">{{ profissional.nome }}</h5>
-                                <p class="card-text">{{ profissional.descricao }}</p>
-                            </div>
-                        </div>
-                    {% endfor %}
+            <h2 class="text-center" style="font-family: Poppins, Arial, Tahoma, sans-serif;">Nossos Profissionais</h2>
+            <div class="row justify-content-center gap-3">
+                {% for profissional in profissionais %}
+                <div class="card text-center mb-3 col-md-4 border" style="width: 18rem;">
+                    {% if profissional.foto %}
+                    <img src="{{ profissional.foto.url }}" class="card-img-top" alt="Profissional {{ loop.index }}"
+                        height="400" width="400" style="object-fit: cover;" loading="lazy">
+                    {% else %}
+                    <img src="https://via.placeholder.com/300" class="card-img-top" alt="Profissional sem imagem" loading="lazy">
+                    {% endif %}
+                    <div class="card-body d-flex flex-column justify-content-between">
+                        <h5 class="card-title">{{ profissional.nome }}</h5>
+                        <p class="card-text">{{ profissional.descricao }}</p>
+                    </div>
                 </div>
+                {% endfor %}
             </div>
         </div>
     </section>
 
-    <!-- Seção 'Contato' -->
-    <section id="contato" class="py-5 bg-light">
+    <!-- Contato -->
+    <footer class="text-center bg-dark text-white py-4" id="contato">
         <div class="container">
-            <h2 class="text-center">Contato</h2>
+            <h2 class="text-center" style="font-family: Poppins, Arial, Tahoma, sans-serif;">Contato</h2>
             <div class="row">
                 <div class="col-md-6">
                     <p><i class="fas fa-map-marker-alt"></i> Endereço: Rua Exemplo, 123 - Cidade, Estado</p>
@@ -141,7 +147,7 @@
                         </div>
                         <div class="mb-3">
                             <label for="email" class="form-label">E-mail</label>
-                            <input type="email" class="form-control" id="email" required>
+                            <input type="email" class="form-control" id="email" required pattern="[^ @]*@[^ @]*" title="Insira um e-mail válido.">
                         </div>
                         <div class="mb-3">
                             <label for="mensagem" class="form-label">Mensagem</label>
@@ -151,17 +157,11 @@
                     </form>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="text-center">
-        <div class="container">
-            <p>© 2023 Salão de Beleza. Todos os direitos reservados.</p>
+            <p>© 2025 Salão de Beleza. Todos os direitos reservados.</p>
             <div>
-                <a href="#" class="me-3"><i class="fab fa-facebook"></i></a>
-                <a href="#" class="me-3"><i class="fab fa-instagram"></i></a>
-                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="https://www.facebook.com" class="me-3" target="_blank"><i class="fab fa-facebook"></i></a>
+                <a href="https://www.instagram.com" class="me-3" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://x.com/" class="me-3" target="_blank"><i class="fab fa-twitter"></i></a>
             </div>
         </div>
     </footer>
