@@ -21,11 +21,13 @@ header {
     & h1 {
         font-size: 3rem;
         font-family: "Bebas Neue";
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
     }
 
     & p {
         font-size: 2rem;
         font-family: "Bona Nova SC";
+        text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
     }
 
     & div {
@@ -37,6 +39,7 @@ header {
 }
 
 .navbar {
+    padding: 10px 0;
     background-color: #f8f9fa;
 }
 
@@ -46,6 +49,10 @@ header {
 
 .nav-link {
     color: #333;
+}
+
+.navbar-nav .nav-link {
+    font-size: 1rem;
 }
 
 
@@ -81,15 +88,21 @@ header {
     & h5 {
         font-family: "poppins";
     }
+
+    & a{
+        border-radius: 20px 0 20px 0;
+    }
 }
 
 .card {
     border: none;
-    transition: transform 0.7s;
+    transition: transform 0.7s, box-shadow 0.3s ease-in-out;
 }
 
 .card:hover {
     transform: scale(1.05);
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.3);
+
 }
 
 .card-img-top {
@@ -116,7 +129,7 @@ header {
 footer {
     background-color: #333;
     color: white;
-    padding: 50px 0;
+    padding: 70px 0;
 
     & h2 {
         font-family: "Bona Nova SC";
