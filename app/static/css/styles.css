@@ -1,10 +1,12 @@
-body {
+body, html {
+    overflow-x: hidden;
+    scroll-behavior: smooth;
     font-family: "Montserrat", sans-serif;
     margin: 0;
     padding: 0;
 
     & li {
-        font-family: "poppins";
+        font-family: "Montserrat";
     }
 }
 
@@ -14,12 +16,16 @@ header {
     background-position: center;
     color: white;
     text-align: center;
-    padding: 150px 0;
+    padding: 250px 0;
     display: flex;
     justify-content: center;
+    align-items: center;
+    height: 100vh;
+    box-sizing: border-box;
+    margin: 0;
 
     & h1 {
-        font-size: 3rem;
+        font-size: 4rem;
         font-family: "Bebas Neue";
         text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
     }
@@ -86,12 +92,21 @@ header {
     }
 
     & h5 {
-        font-family: "poppins";
+        font-family: "Bebas Neue";
+        font-size: 1.7rem;
     }
 
-    & a{
+    & a {
+        font-family: "Montserrat";
         border-radius: 20px 0 20px 0;
     }
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    justify-content: center;
 }
 
 .card {
@@ -102,7 +117,6 @@ header {
 .card:hover {
     transform: scale(1.05);
     box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.3);
-
 }
 
 .card-img-top {
@@ -121,7 +135,8 @@ header {
     }
 
     & h5 {
-        font-family: "poppins";
+        font-family: "Bebas Neue";
+        font-size: 1.7rem;
     }
 }
 
@@ -163,3 +178,86 @@ footer .btn-primary {
 footer .btn-primary:hover {
     background-color: #0056b3;
 }
+
+[data-aos] {
+    transition: all 0.4s ease;
+}
+
+@media screen and (max-width: 992px) {
+    header h1 {
+        font-size: 2.5rem;
+    }
+
+    header p {
+        font-size: 1.5rem;
+    }
+
+    #sobre h2, #servicos h2, #profissionais h2, footer h2 {
+        font-size: 2rem;
+    }
+
+    #servicos h5, #profissionais h5 {
+        font-size: 1.5rem;
+    }
+
+    #sobre p {
+        font-size: 1rem;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    header h1 {
+        font-size: 2rem;
+    }
+
+    header p {
+        font-size: 1.2rem;
+    }
+
+    #sobre h2, #servicos h2, #profissionais h2, footer h2 {
+        font-size: 1.8rem;
+    }
+
+    #servicos h5, #profissionais h5 {
+        font-size: 1.3rem;
+    }
+
+    #sobre p {
+        font-size: 0.9rem;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    header h1 {
+        font-size: 1.8rem;
+    }
+
+    header p {
+        font-size: 1rem;
+    }
+
+    #sobre h2, #servicos h2, #profissionais h2, footer h2 {
+        font-size: 1.6rem;
+    }
+
+    #servicos h5, #profissionais h5 {
+        font-size: 1.2rem;
+    }
+
+    #sobre p {
+        font-size: 0.8rem;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .grid-container {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Reduz o tamanho mínimo dos cards */
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .grid-container {
+        grid-template-columns: 1fr; /* Uma coluna em telas muito pequenas */
+    }
+}
+
