@@ -1,12 +1,12 @@
 body, html {
     overflow-x: hidden;
     scroll-behavior: smooth;
-    font-family: "Montserrat", sans-serif;
+    font-family: "Montserrat", sans-serif, serif, monospace;
     margin: 0;
     padding: 0;
 
     & li {
-        font-family: "Montserrat";
+        font-family: "Montserrat", sans-serif, serif, monospace;
     }
 }
 
@@ -27,13 +27,13 @@ header {
 
     & h1 {
         font-size: 4rem;
-        font-family: "Bebas Neue";
+        font-family: "Bebas Neue", sans-serif, serif, monospace;
         text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
     }
 
     & p {
         font-size: 2rem;
-        font-family: "Bona Nova SC";
+        font-family: "Bona Nova SC", sans-serif, serif, monospace;
         text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
     }
 
@@ -60,6 +60,30 @@ header {
 
 .navbar-nav .nav-link {
     font-size: 1rem;
+    position: relative;
+    text-decoration: none;
+    color: #444;
+    padding: 0;
+    transition: color 0.3s ease-in-out;
+    max-width: fit-content;
+}
+.navbar-nav .nav-link::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    width: 0%;
+    height: 1px;
+    background-color: #666;
+    transition: width 0.3s ease-in-out;
+}
+
+.navbar-nav .nav-link:hover {
+    color: #000;
+}
+
+.navbar-nav .nav-link:hover::after {
+    width: 100%; /* Expande a linha da esquerda para a direita */
 }
 
 
@@ -81,7 +105,7 @@ header {
     }
 
     & h2 {
-        font-family: "Bona Nova SC";
+        font-family: "Bona Nova SC", sans-serif, serif, monospace;
         font-size: 2.5rem;
         color: #333;
     }
@@ -110,18 +134,18 @@ header {
     background-color: #f8f9fa;
 
     & h2 {
-        font-family: "Bona Nova SC";
+        font-family: "Bona Nova SC", sans-serif, serif, monospace;
         font-size: 2.5rem;
         color: #333;
     }
 
     & h5 {
-        font-family: "Bebas Neue";
+        font-family: "Bebas Neue", sans-serif, serif, monospace;
         font-size: 1.7rem;
     }
 
     & a {
-        font-family: "Montserrat";
+        font-family: "Montserrat", sans-serif, serif, monospace;
         border-radius: 20px 0 20px 0;
     }
 }
@@ -153,13 +177,13 @@ header {
     padding: 70px 0;
 
     & h2 {
-        font-family: "Bona Nova SC";
+        font-family: "Bona Nova SC", sans-serif, serif, monospace;
         font-size: 2.5rem;
         color: #333;
     }
 
     & h5 {
-        font-family: "Bebas Neue";
+        font-family: "Bebas Neue", sans-serif, serif, monospace;
         font-size: 1.7rem;
     }
 }
@@ -171,7 +195,7 @@ footer {
     padding: 70px 0 30px 0;
 
     & h2 {
-        font-family: "Bona Nova SC";
+        font-family: "Bona Nova SC", sans-serif, serif, monospace;
         font-size: 2.5rem;
     }
 
