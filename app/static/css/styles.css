@@ -64,20 +64,43 @@ header {
 
 
 #sobre {
-    padding: 70px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    padding: 0;
+    background-color: #f8f9fa;
+    box-sizing: border-box;
 
     & p {
-        font-family: "Montserrat", sans-serif;
-        font-weight: 400;
-        font-size: 1.2rem;
+        font-size: 1.5rem;
         line-height: 1.6;
         color: #333;
+        max-width: 600px;
+        text-align: start;
     }
 
     & h2 {
         font-family: "Bona Nova SC";
         font-size: 2.5rem;
         color: #333;
+    }
+
+    & img {
+        max-width: 100%;
+        height: auto;
+        object-fit: contain;
+    }
+    & .row {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+    }
+    & .container {
+        max-width: 90%;
+        text-align: center;
     }
 }
 
@@ -246,19 +269,42 @@ footer .btn-primary:hover {
     }
 
     #sobre p {
-        font-size: 0.8rem;
+        font-size: 1rem;
     }
 }
 
 @media screen and (max-width: 768px) {
     .grid-container {
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Reduz o tamanho mínimo dos cards */
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     }
 }
 
 @media screen and (max-width: 576px) {
     .grid-container {
-        grid-template-columns: 1fr; /* Uma coluna em telas muito pequenas */
+        grid-template-columns: 1fr;
     }
 }
+
+@media screen and (max-width: 768px) {
+    #sobre {
+        height: auto;
+        padding: 70px 0;
+    }
+
+    #sobre .row {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    #sobre p {
+        font-size: 1.2rem;
+        max-width: 100%;
+    }
+ 
+    #sobre img {
+        max-width: 80%;
+    }
+}
+
+/* aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa */
 
