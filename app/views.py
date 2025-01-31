@@ -6,4 +6,5 @@ class indexView(View):
     def get(self, request):
         profissionais = Profissional.objects.all()
         servicos = Servico.objects.all()
-        return render(request, 'index.html' , {'profissionais': profissionais, 'servicos': servicos})
+        galeria = Galeria.objects.all()
+        return render(request, 'index.html' , {'profissionais': profissionais, 'servicos': servicos, 'galerias': galeria})

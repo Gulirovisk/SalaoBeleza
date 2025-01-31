@@ -37,3 +37,14 @@ class Servico (models.Model):
 
     def __str__(self):
         return f"{self.nome} - ({self.profissional.nome})"
+    
+class Galeria (models.Model):
+    nome = models.CharField(max_length=100, verbose_name="Nome da Imagem", blank=True, null=True)
+    imagem = models.ImageField(upload_to='galerias', verbose_name="Imagem da Galeria")
+
+    class Meta:
+        verbose_name = "Galeria"
+        verbose_name_plural = "Galerias"
+
+    def __str__(self):
+        return f"{self.nome}"

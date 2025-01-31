@@ -17,7 +17,7 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-ligh bg-light fixed-top">
         <div class="container">
             <img src="{% static 'icon/blackFlowe.svg' %}" alt="Logo do salão de beleza" class="me-2">
             <a class="navbar-brand" href="#inicio">BeautyScheduler</a>
@@ -35,6 +35,9 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#servicos">Nossos Serviços</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#galeria">Galeria</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#profissionais">Profissionais</a>
@@ -101,6 +104,20 @@
             </div>
         </div>
     </section>
+
+    <!-- Galeria -->
+    <section id="galeria">
+        <div class="container">
+            <h2 class="text-center mb-4">Galeria</h2>
+            <div class="grid-container">
+                {% for galeria in galerias %}
+                <div class="card border-0">
+                    <img src="{{ galeria.imagem.url }}" class="card-img-top imagem-galeria" alt="Foto {{ loop.index }}" loading="lazy">
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>    
 
     <!-- Profissionais -->
     <section id="profissionais">

@@ -83,7 +83,7 @@ header {
 }
 
 .navbar-nav .nav-link:hover::after {
-    width: 100%; /* Expande a linha da esquerda para a direita */
+    width: 100%;    
 }
 
 
@@ -155,7 +155,6 @@ header {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 20px;
-    justify-content: center;
 }
 
 .card {
@@ -170,6 +169,60 @@ header {
 
 .card-img-top {
     height: 400px;
+    object-fit: cover;
+}
+
+#galeria {
+    padding: 70px 0;
+    background-color: #f8f9fa;
+
+    & h2 {
+        font-family: "Bona Nova SC", sans-serif, serif, monospace;
+        font-size: 2.5rem;
+        color: #333;
+    }
+
+    & h5 {
+        font-family: "Bebas Neue", sans-serif, serif, monospace;
+        font-size: 1.7rem;
+    }
+
+    & .imagem-galeria {
+        filter: grayscale(100%);
+    }
+
+    & .imagem-galeria:hover {
+        filter: grayscale(0%);
+    }
+}
+
+#galeria .grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+
+}
+
+#galeria .card {
+    overflow: hidden;
+    border-radius: 10px;
+    transition: transform 0.3s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#galeria .card:hover {
+    transform: scale(1.05);
+}
+
+#galeria .card img {
+    width: 100%;
+    max-width: 350px;
+    height: auto;
     object-fit: cover;
 }
 
@@ -265,9 +318,6 @@ footer .btn-primary:hover {
         font-size: 2rem;
     }
 
-    #sobre h2, #servicos h2, #profissionais h2, footer h2 {
-        font-size: 2.2rem;
-    }
 
     #servicos h5, #profissionais h5 {
         font-size: 1.6rem;
@@ -287,9 +337,6 @@ footer .btn-primary:hover {
         font-size: 1.5rem;
     }
 
-    #sobre h2, #servicos h2, #profissionais h2, footer h2 {
-        font-size: 2rem;
-    }
 
     #servicos h5, #profissionais h5 {
         font-size: 1.5rem;
@@ -298,6 +345,13 @@ footer .btn-primary:hover {
     #sobre p {
         font-size: 1.1rem;
     }
+    #galeria .grid-container {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+
+    #galeria .card img {
+        max-width: 300px;
+    }
 }
 
 @media screen and (max-width: 768px) {
@@ -309,54 +363,10 @@ footer .btn-primary:hover {
         font-size: 1.2rem;
     }
 
-    #sobre h2, #servicos h2, #profissionais h2, footer h2 {
-        font-size: 1.8rem;
-    }
-
     #servicos h5, #profissionais h5 {
         font-size: 1.3rem;
     }
 
-    #sobre p {
-        font-size: 0.9rem;
-    }
-}
-
-@media screen and (max-width: 576px) {
-    header h1 {
-        font-size: 1.8rem;
-    }
-
-    header p {
-        font-size: 1rem;
-    }
-
-    #sobre h2, #servicos h2, #profissionais h2, footer h2 {
-        font-size: 1.6rem;
-    }
-
-    #servicos h5, #profissionais h5 {
-        font-size: 1.2rem;
-    }
-
-    #sobre p {
-        font-size: 1rem;
-    }
-}
-
-@media screen and (max-width: 768px) {
-    .grid-container {
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    }
-}
-
-@media screen and (max-width: 576px) {
-    .grid-container {
-        grid-template-columns: 1fr;
-    }
-}
-
-@media screen and (max-width: 768px) {
     #sobre {
         height: auto;
         padding: 70px 0;
@@ -371,10 +381,49 @@ footer .btn-primary:hover {
         font-size: 1.1rem;
         max-width: 100%;
     }
- 
+
     #sobre img {
         max-width: 80%;
     }
+
+    #galeria .grid-container {
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    }
+
+    #galeria .card img {
+        max-width: 250px;
+    }
+    .grid-container {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
 }
 
+@media screen and (max-width: 576px) {
+    header h1 {
+        font-size: 1.8rem;
+    }
+
+    header p {
+        font-size: 1rem;
+    }
+
+    #servicos h5, #profissionais h5 {
+        font-size: 1.2rem;
+    }
+
+    #sobre p {
+        font-size: 1rem;
+    }
+    #galeria .grid-container {
+        grid-template-columns: 1fr;
+    }
+
+    #galeria .card img {
+        max-width: 100%;
+    }
+
+    .grid-container {
+        grid-template-columns: 1fr;
+    }
+}
 /* aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa */
