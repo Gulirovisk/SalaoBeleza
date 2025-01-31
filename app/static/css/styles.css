@@ -1,20 +1,17 @@
 body, html {
     overflow-x: hidden;
     scroll-behavior: smooth;
-    font-family: "Montserrat", sans-serif, serif, monospace;
+    font-family: "Montserrat", sans-serif;
     margin: 0;
     padding: 0;
+}
 
-    & li {
-        font-family: "Montserrat", sans-serif, serif, monospace;
-    }
+li {
+    font-family: "Montserrat", sans-serif, serif, monospace;
 }
 
 header {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('/static/icon/background.jpg');
-    background-size: cover;
-    object-fit: cover;
-    background-position: center;
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('/static/icon/background.jpg') center/cover no-repeat;
     color: white;
     text-align: center;
     padding: 250px 0;
@@ -221,8 +218,8 @@ header {
 
 #galeria .card img {
     width: 100%;
-    max-width: 350px;
     height: auto;
+    max-width: 100%;
     object-fit: cover;
 }
 
@@ -426,4 +423,3 @@ footer .btn-primary:hover {
         grid-template-columns: 1fr;
     }
 }
-/* aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa */
