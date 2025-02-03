@@ -131,10 +131,13 @@
                     {% else %}
                     <img src="https://via.placeholder.com/300" class="card-img-top" alt="Profissional sem imagem" loading="lazy">
                     {% endif %}
-                    <div class="card-body d-flex flex-column justify-content-between">
+                    <div class="card-body d-flex flex-column justify-content-center">
                         <h5 class="card-title">{{ profissional.nome }}</h5>
+                    </div>
+                    <div class="card-body d-flex justify-content-center">
                         <p class="card-text">{{ profissional.descricao }}</p>
                     </div>
+                    
                 </div>
                 {% endfor %}
             </div>
